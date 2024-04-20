@@ -1,0 +1,4 @@
+label text color: #7d42a6
+pane bg color:  #ddddff
+
+login btn color: #51a411

@@ -1,0 +1,18 @@
+DROP DATABASE IF EXISTS online_course_registration;
+
+CREATE DATABASE online_course_registration;
+USE online_course_registration;
+
+
+CREATE TABLE user(userID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, userName VARCHAR(100),
+ userPassword VARCHAR(20), userEmail VARCHAR(100));
+
+CREATE TABLE course(courseID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, courseName VARCHAR(100), courseDuration INT);
+
+CREATE TABLE college(collegeID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, collegeName VARCHAR(200));
+
+CREATE TABLE application(applicationID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, kcseIndexNumber VARCHAR(20),
+kcseYear INT, applicationStatus VARCHAR(10), userID INT, courseID INT, collegeID INT,
+FOREIGN KEY (userID) REFERENCES user(userID),
+FOREIGN KEY (courseID) REFERENCES course(courseID),
+FOREIGN KEY (collegeID) REFERENCES college(collegeID));
